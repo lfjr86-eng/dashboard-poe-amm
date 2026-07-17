@@ -10,11 +10,11 @@
 </head>
 <body>
   <header><h1>Dashboard histórico del POE</h1><p>Valorizado en el nodo de referencia</p></header>
-  <nav class="tabs" aria-label="Secciones del dashboard"><button class="tab active" data-tab="historico">Histórico y tendencia</button><button class="tab" data-tab="perfiles">Perfiles típicos</button></nav>
+  <nav class="tabs" aria-label="Secciones del dashboard"><button class="tab active" data-tab="historico">Histórico y tendencia</button><button class="tab" data-tab="perfiles">Perfiles típicos</button><button class="tab" data-tab="demanda">SIS-DIS 2026</button><button class="tab" data-tab="comparativo">Comparativo 2026</button></nav>
   <main>
     <section class="panel active" id="historico"><iframe title="Dashboard histórico del POE" src="historico-v2.html"></iframe></section>
-    <section class="panel" id="perfiles"><iframe title="Perfiles típicos del POE" src="perfiles-v2.html"></iframe></section>
+    <section class="panel" id="perfiles"><iframe title="Perfiles típicos del POE" src="perfiles-v2.html"></iframe></section><section class="panel" id="demanda"><iframe title="SIS-DIS 2026" src="demanda-2026.html"></iframe></section><section class="panel" id="comparativo"><iframe title="Comparativo 2026" src="comparativo-2026.html"></iframe></section>
   </main>
-  <script>const tabs=document.querySelectorAll('.tab'),panels=document.querySelectorAll('.panel'),profileFrame=document.querySelector('#perfiles iframe');function show(id){tabs.forEach(x=>x.classList.toggle('active',x.dataset.tab===id));panels.forEach(x=>x.classList.toggle('active',x.id===id));history.replaceState(null,'','#'+id)}tabs.forEach(x=>x.onclick=()=>show(x.dataset.tab));profileFrame.onload=()=>{let a=profileFrame.contentDocument.querySelector('a[href="index.html"]');if(a){a.href='index.html#historico';a.target='_top'}};show(location.hash.slice(1)==='perfiles'?'perfiles':'historico');</script>
+  <script>const tabs=document.querySelectorAll('.tab'),panels=document.querySelectorAll('.panel'),profileFrame=document.querySelector('#perfiles iframe');function show(id){tabs.forEach(x=>x.classList.toggle('active',x.dataset.tab===id));panels.forEach(x=>x.classList.toggle('active',x.id===id));history.replaceState(null,'','#'+id)}tabs.forEach(x=>x.onclick=()=>show(x.dataset.tab));profileFrame.onload=()=>{let a=profileFrame.contentDocument.querySelector('a[href="index.html"]');if(a){a.href='index.html#historico';a.target='_top'}};show(['historico','perfiles','demanda','comparativo'].includes(location.hash.slice(1))?location.hash.slice(1):'historico');</script>
 </body>
 </html>
